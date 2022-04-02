@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webcam mirror</title>
+    <style>
+      #container {
+        margin: 0px auto;
+        width: 100%;
+        height: 100%;
+      }
+      #videoElement {
+        width: 100%;
+        height: 100vh;
+        background-color: #444;
+      }
+    </style>
+    <script>
+      var video = document.querySelector("#videoElement");
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <video autoplay="true" id="videoElement"></video>
+  </body>
+</html>
