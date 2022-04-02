@@ -17,6 +17,9 @@
         background-color: #444;
       }
     </style>
+  </head>
+  <body>
+    <video autoplay="true" id="videoElement"></video>
     <script>
       var video = document.querySelector("#videoElement");
       if (navigator.mediaDevices.getUserMedia) {
@@ -30,8 +33,5 @@
           });
       }
     </script>
-  </head>
-  <body>
-    <video autoplay="true" id="videoElement"></video>
   </body>
 </html>
