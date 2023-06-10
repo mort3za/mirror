@@ -18,6 +18,17 @@
         display: block;
         transform: scaleX(-1);
       }
+      #videoElement.noMirror {
+        transform: scaleX(1);
+      }
+      #flip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        padding: 5px 10px;
+        font-size: 16px;
+      }
       body {
         margin: 0;
       }
@@ -25,6 +36,7 @@
   </head>
   <body>
     <video autoplay="true" id="videoElement"></video>
+    <button id="flip" type="button">Flip</button>
     <script>
       var video = document.querySelector("#videoElement");
       if (navigator.mediaDevices.getUserMedia) {
@@ -37,6 +49,11 @@
             console.log("Something went wrong!");
           });
       }
+      var flipButton = document.querySelector("#flip");
+      flipButton.addEventListener("click", function () {
+        var video = document.querySelector("#videoElement");
+        video.classList.toggle("noMirror");
+      });
     </script>
   </body>
 </html>
